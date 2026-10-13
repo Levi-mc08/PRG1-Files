@@ -6,6 +6,7 @@ are most likely to get wrong in an assignment.
 
 Run it. Then run it again. Then look at both files.
 """
+import os
 
 with open("overwrite.txt", "w") as f:
     f.write("A line\n")

@@ -14,25 +14,25 @@ WATCH_LIST = ["Manchester", "Cardiff"]
 with open("rainfall.txt", "r") as f:
     contents = f.read()
 
-record_count = len(contents.split("\n"))
+record_count = len(contents.strip().split("\n"))
 
 total = 0
 
-with open("report.txt", "a") as report:
+with open("report.txt", "w") as report:
     for line in contents.splitlines():
         station, millimetres_text = line.split(",")
         millimetres = int(millimetres_text)
 
         total = total + millimetres
 
-        if station in WATCH_LIST:
+        if station.strip() in WATCH_LIST:
             status = "Watch"
         elif millimetres >= WET_THRESHOLD:
             status = "Wet"
         else:
             status = "Dry"
 
-        report.write(f"{station}: {millimetres} mm ({status})\n")
+        report.write(f"{station.strip()}: {millimetres} mm ({status})\n")
 
     report.write(f"Average: {total / record_count:.1f} mm\n")
 
