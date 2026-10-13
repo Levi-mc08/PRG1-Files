@@ -25,11 +25,15 @@ with open("report.txt", "w") as report:
 
         if millimetres >= WET_THRESHOLD:
             status = "Wet"
+            report.write(f"{station}: {millimetres} mm ({status})\n")
         else:
             status = "Dry"
+            print(f"{station}: {millimetres} mm ({status})\n")
 
-        report.write(f"{station}: {millimetres} mm ({status})\n")
+        
 
+    report.write(f"Number of stations: {count}\n")
+    report.write(f"Total rainfall: {total} mm\n")
     report.write(f"Average: {total / count:.1f} mm\n")
 
 print(f"Report written. {count} stations.")

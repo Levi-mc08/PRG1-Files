@@ -6,10 +6,12 @@ to a log file. A working program: nothing here is missing.
 """
 
 import datetime
+import os
 
 INPUT_FILE = "./test_usernames.txt"
 OUTPUT_FILE = "./username_validation_log.txt"
 
+os.remove(OUTPUT_FILE)
 
 def get_current_datetime_formatted():
     now = datetime.datetime.now()
@@ -18,8 +20,7 @@ def get_current_datetime_formatted():
 
 def is_valid_username(username):
     clean_username = username.strip()
-    return len(clean_username) > 0
-
+    return len(clean_username) > 3
 
 def check_username(username):
     is_valid = is_valid_username(username)

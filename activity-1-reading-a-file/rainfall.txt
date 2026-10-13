@@ -3,3 +3,4 @@ Manchester,141
 Norwich,47
 Cardiff,116
 Aberdeen,93
+Chester,65
