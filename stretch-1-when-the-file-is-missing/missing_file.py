@@ -7,12 +7,15 @@ one, put a line in it, and run it again.
 
 FILENAME = "notes.txt"
 
+
+
 print("--- without any protection ---")
 try:
     with open(FILENAME, "r") as f:
         print(f.read())
 except FileNotFoundError as problem:
     print(f"Caught it: {problem}")
+    print(f"Could not find a file with name: {FILENAME}")
 
 print("--- deciding what to do instead ---")
 try:
